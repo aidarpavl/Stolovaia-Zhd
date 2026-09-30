@@ -540,7 +540,7 @@ else:
                     st.session_state.daily_r = r
                     st.success(f"✅ {len(r)} жазба")
 
-       if "daily_r" in st.session_state and not st.session_state.daily_r.empty:
+      if "daily_r" in st.session_state and not st.session_state.daily_r.empty:
             st.dataframe(st.session_state.daily_r, use_container_width=True)
             if st.button("💾 Күндік есепті сақтау",
                          use_container_width=True,
