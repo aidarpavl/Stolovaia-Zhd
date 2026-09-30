@@ -540,13 +540,16 @@ else:
                     st.session_state.daily_r = r
                     st.success(f"✅ {len(r)} жазба")
 
-        if "daily_r" in st.session_state and not st.session_state.daily_r.empty:
+       if "daily_r" in st.session_state and not st.session_state.daily_r.empty:
             st.dataframe(st.session_state.daily_r, use_container_width=True)
-           if st.button("💾 Күндік есепті сақтау", key="save_daily",
-             use_container_width=True, type="primary"):
-    with st.spinner("Жіберілуде..."):
-        if append_report(st.session_state.daily_r, DAILY_PATH, "Есеп күні"):
-            st.success("✅ Сақталды!")
+            if st.button("💾 Күндік есепті сақтау",
+                         use_container_width=True,
+                         type="primary",
+                         key="save_daily_btn"):
+                with st.spinner("Жіберілуде..."):
+                    if append_report(st.session_state.daily_r,
+                                     DAILY_PATH, "Есеп күні"):
+                        st.success("✅ Сақталды!")
     # --- АЙЛЫҚ ---
     with t5:
         st.markdown("### 📈 Айлық есеп")
